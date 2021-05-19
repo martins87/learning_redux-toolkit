@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
+
 import './App.css';
 
 const App = () => {
@@ -11,8 +13,8 @@ const App = () => {
           Counter: {counter}
         </p>
         <div>
-          <button className="btn" onClick={() => setCounter(counter + 1)}>Increment</button>
-          <button className="btn" onClick={() => setCounter(counter - 1)}>Decrement</button>
+          <Button variant="contained" className="mui-btn" onClick={() => {setCounter(counter + 1)}}>Increment</Button>
+          <Button variant="contained" className="mui-btn" onClick={() => {setCounter(counter - 1)}}>Decrement</Button>
         </div>
       </header>
     </div>

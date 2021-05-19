@@ -44,3 +44,7 @@
   margin: 2px;
   cursor: pointer;
 }
+
+.mui-btn {
+  margin: 4px !important;
+}
