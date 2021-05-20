@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 
 import './App.css';
-import { increment, decrement, incrementByAmount } from './redux/counterSlice';
+import { increment, decrement, incrementByAmount } from './state/counterSlice';
+import { useAppDispatch, useAppSelector } from './hooks';
 
-interface StateProps {
-  counter: {
-    count: number
-  }
-}
+// interface StateProps {
+//   counter: {
+//     count: number
+//   }
+// }
 
 const App = () => {
-  // const [count, setCount] = useState<number>(0);
-  const { count } = useSelector((state: StateProps) => {
+  // const { count } = useSelector((state: StateProps) => {
+  // No need for state props type anymore
+  const { count } = useAppSelector((state) => {
     console.log('State:', state);
     return state.counter;
   });
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          Counter: {count}
+          Counter: <span style={{color:"yellow"}}>{count}</span>
         </p>
         <div>
           <Button variant="contained" className="mui-btn" onClick={() => dispatch(increment())}>Increment</Button>
